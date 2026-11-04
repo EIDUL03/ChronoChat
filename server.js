@@ -6,7 +6,7 @@ const io = new Server(http);
 const path = require('path');
 
 // Serve static frontend files from the 'public' folder (adjust folder name if yours differs, e.g., 'client')
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname));
 app.use(express.json());
 
 const pendingVerifications = {};
