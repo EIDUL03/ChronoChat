@@ -5,7 +5,8 @@ const { Server } = require('socket.io');
 const io = new Server(http);
 const path = require('path');
 
-app.use(express.static(path.join(__dirname, '../public')));
+// Serve static frontend files from the 'public' folder (adjust folder name if yours differs, e.g., 'client')
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 
 const pendingVerifications = {};
@@ -96,6 +97,7 @@ io.on('connection', (socket) => {
     });
 });
 
+// Use Render's dynamic port or default to 3000 locally
 const PORT = process.env.PORT || 3000;
 http.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
